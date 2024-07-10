@@ -1,0 +1,4 @@
+.UtilityButton {
+  background-color: var(--utilityButtonBackgroundColor);
+  color: var(--utilityButtonTextColor);
+}

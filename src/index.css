@@ -78,6 +78,8 @@ select {
 
 button {
   outline-color: #7ed7f8;
+  border: none;
+  border-radius: max(1em, 2vw);
   transition: opacity 300ms, scale 300ms;
   box-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
 }
@@ -107,8 +109,8 @@ GENERAL STYLES================
 ==============================*/
 :root {
   --textColorBlue: #293264;
-  --buttonTextColor: #f5f7fb;
-  --buttonBackgroundColor: #4d5b9e;
+  --utilityButtonTextColor: #f5f7fb;
+  --utilityButtonBackgroundColor: #4d5b9e;
   --pageBackgroundColor: #f5f7fb;
   --chosenBackgroundColor: #d6dbf5;
   --correctOptionBackgroundColor: #94d7a2;

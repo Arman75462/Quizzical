@@ -1,5 +1,7 @@
 import "/src/styles/QuizQuestionnairePage.css";
 
-function QuizQuestionnairePage() {}
+function QuizQuestionnairePage() {
+  return <div className="QuizQuestionnairePage"></div>;
+}
 
 export default QuizQuestionnairePage;

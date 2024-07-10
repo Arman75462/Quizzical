@@ -1,4 +1,4 @@
-/* Your Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 /*============================
 RESETS=====================
@@ -31,6 +31,7 @@ html {
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
   color-scheme: light dark;
+  font-family: "Inter", sans-serif;
 }
 
 /* Optimize line-height for headings to enhance title readability */
@@ -99,4 +100,17 @@ select,
 button,
 a {
   cursor: pointer;
+}
+
+/*============================
+GENERAL STYLES================
+==============================*/
+:root {
+  --textColorBlue: #293264;
+  --buttonTextColor: #f5f7fb;
+  --buttonBackgroundColor: #4d5b9e;
+  --pageBackgroundColor: #f5f7fb;
+  --chosenBackgroundColor: #d6dbf5;
+  --correctOptionBackgroundColor: #94d7a2;
+  --wrongOptionBackgroundColor: #f8bcbc;
 }

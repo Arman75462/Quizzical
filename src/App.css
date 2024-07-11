@@ -5,26 +5,8 @@
   overflow: hidden;
 }
 
-.App::before,
-.App::after {
-  content: "";
-  position: absolute;
-  width: max(10em, 15vw);
-  height: max(10em, 15vw);
-  background-color: red;
-  border-radius: 56% 44% 44% 56% / 44% 46% 54% 56%;
-}
-
-.App::before {
-  bottom: min(-3em, -3vw);
-  left: min(-3em, -3vw);
-}
-
-.App::after {
-  top: min(-3em, -3vw);
-  right: min(-3em, -3vw);
-}
-
+/* Before and after pseudo-elements are here to create and style 
+the blobs located at the top right and bottom left of the website */
 .App::before,
 .App::after {
   content: "";

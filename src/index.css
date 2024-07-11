@@ -77,7 +77,7 @@ select {
 }
 
 button {
-  outline-color: #7ed7f8;
+  outline-color: black;
   border: none;
   border-radius: max(1em, 2vw);
   transition: opacity 300ms, scale 300ms;
@@ -115,4 +115,6 @@ GENERAL STYLES================
   --chosenBackgroundColor: #d6dbf5;
   --correctOptionBackgroundColor: #94d7a2;
   --wrongOptionBackgroundColor: #f8bcbc;
+  --bottomLeftBlobBackgroundColor: #deebf8;
+  --upperRightBlobBackgroundColor: #fffad1;
 }

@@ -1,3 +1,47 @@
 .App {
   min-height: 100vh;
+  background-color: var(--pageBackgroundColor);
+  position: relative; /* Ensure positioning context for blobs */
+  overflow: hidden;
+}
+
+.App::before,
+.App::after {
+  content: "";
+  position: absolute;
+  width: max(10em, 15vw);
+  height: max(10em, 15vw);
+  background-color: red;
+  border-radius: 56% 44% 44% 56% / 44% 46% 54% 56%;
+}
+
+.App::before {
+  bottom: min(-3em, -3vw);
+  left: min(-3em, -3vw);
+}
+
+.App::after {
+  top: min(-3em, -3vw);
+  right: min(-3em, -3vw);
+}
+
+.App::before,
+.App::after {
+  content: "";
+  position: absolute;
+  width: max(10em, 15vw);
+  height: max(10em, 15vw);
+  border-radius: 56% 44% 44% 56% / 44% 46% 54% 56%;
+}
+
+.App::before {
+  bottom: min(-3em, -3vw);
+  left: min(-3em, -3vw);
+  background-color: var(--bottomLeftBlobBackgroundColor);
+}
+
+.App::after {
+  top: min(-3em, -3vw);
+  right: min(-3em, -3vw);
+  background-color: var(--upperRightBlobBackgroundColor);
 }

@@ -1,4 +1,11 @@
 .QuizStartPage {
   min-height: 100vh;
-  background-color: var(--pageBackgroundColor);
+
+  color: var(--textColorBlue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+  font-size: clamp(1.25rem, 2vw, 30rem);
 }

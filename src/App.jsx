@@ -4,11 +4,11 @@ import QuizQuestionnairePage from "/src/pages/QuizQuestionnairePage.jsx";
 import QuizStartPage from "/src/pages/QuizStartPage.jsx";
 
 function App() {
-  const [isQuizStart, setIsQuizStart] = useState(false);
+  const [isQuizStart, setIsQuizStart] = useState(true);
 
   return (
     <div className="App">
-      {isQuizStart ? <QuizStartPage /> : <QuizQuestionnairePage />}
+      {isQuizStart ? <QuizQuestionnairePage /> : <QuizStartPage />}
     </div>
   );
 }

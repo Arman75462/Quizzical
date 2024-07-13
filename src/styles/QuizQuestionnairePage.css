@@ -15,14 +15,14 @@
   border: 0.01em solid var(--chosenOptionBackgroundColor);
 }
 
-.QuizQuestionnairePage__answers {
+.QuizQuestionnairePage__options-container {
   margin: 1em 0;
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
 }
 
-.QuizQuestionnairePage__answers button {
+.QuizQuestionnairePage__options {
   background-color: transparent;
   padding: 0.2em 1em;
   font-size: clamp(0.9rem, 1.25vw, 25rem);
@@ -32,4 +32,9 @@
 .QuizQuestionnairePage .UtilityButton {
   display: block;
   margin: 0 auto;
+}
+
+.chosenOptionStyle {
+  background-color: var(--chosenOptionBackgroundColor);
+  border-color: var(--chosenOptionBackgroundColor);
 }

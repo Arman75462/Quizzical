@@ -4,7 +4,9 @@ import UtilityButton from "/src/components/UtilityButton.jsx";
 
 function QuizQuestionnairePage() {
   const [dataFromAPI, setDataFromAPI] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
+  // Fetch data on component mount
   useEffect(() => {
     fetch(
       "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
@@ -16,13 +18,23 @@ function QuizQuestionnairePage() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        console.log(data.results);
         setDataFromAPI(data.results);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+  const handleOptionClick = (event, question) => {
+    const selectedOption = event.target.textContent;
+    setSelectedOptions((prevSelectedOptions) => ({
+      ...prevSelectedOptions,
+      [question]: selectedOption,
+    }));
+  };
+
+  console.log(selectedOptions);
 
   return (
     <div className="QuizQuestionnairePage">
@@ -33,10 +45,30 @@ function QuizQuestionnairePage() {
         >
           <p className="QuizQuestionnairePage__question">{result.question}</p>
 
-          <div className="QuizQuestionnairePage__answers">
-            <button>{result.correct_answer}</button>
-            {result.incorrect_answers.map((incorrectAnswer) => (
-              <button key={incorrectAnswer}>{incorrectAnswer}</button>
+          <div className="QuizQuestionnairePage__options-container">
+            <button
+              onClick={(event) => handleOptionClick(event, result.question)}
+              className={`QuizQuestionnairePage__options ${
+                selectedOptions[result.question] === result.correct_answer
+                  ? "chosenOptionStyle"
+                  : ""
+              }`}
+            >
+              {result.correct_answer}
+            </button>
+
+            {result.incorrect_answers.map((incorrectAnswer, index) => (
+              <button
+                key={index}
+                onClick={(event) => handleOptionClick(event, result.question)}
+                className={`QuizQuestionnairePage__options ${
+                  selectedOptions[result.question] === incorrectAnswer
+                    ? "chosenOptionStyle"
+                    : ""
+                }`}
+              >
+                {incorrectAnswer}
+              </button>
             ))}
           </div>
 

@@ -3,6 +3,7 @@
   background-color: var(--pageBackgroundColor);
   position: relative; /* Ensure positioning context for blobs */
   overflow: hidden;
+  z-index: 1;
 }
 
 /* Before and after pseudo-elements are here to create and style 
@@ -14,16 +15,18 @@ the blobs located at the top right and bottom left of the website */
   width: max(10em, 15vw);
   height: max(10em, 15vw);
   border-radius: 56% 44% 44% 56% / 44% 46% 54% 56%;
+  position: fixed;
+  z-index: -1;
 }
 
 .App::before {
-  bottom: min(-3em, -3vw);
-  left: min(-3em, -3vw);
+  bottom: min(-4em, -4vw);
+  left: min(-4em, -4vw);
   background-color: var(--bottomLeftBlobBackgroundColor);
 }
 
 .App::after {
-  top: min(-3em, -3vw);
-  right: min(-3em, -3vw);
+  top: min(-4em, -4vw);
+  right: min(-4em, -4vw);
   background-color: var(--upperRightBlobBackgroundColor);
 }

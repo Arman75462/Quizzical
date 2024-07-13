@@ -4,7 +4,7 @@ import QuizQuestionnairePage from "/src/pages/QuizQuestionnairePage.jsx";
 import QuizStartPage from "/src/pages/QuizStartPage.jsx";
 
 function App() {
-  const [isQuizStart, setIsQuizStart] = useState(true);
+  const [isQuizStart, setIsQuizStart] = useState(false);
 
   return (
     <div className="App">

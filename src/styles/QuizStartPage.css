@@ -9,4 +9,5 @@
   gap: 4em;
 
   font-size: clamp(1.25rem, 2vw, 30rem);
+  animation: fadeInRightToLeft 1.5s ease-out forwards;
 }

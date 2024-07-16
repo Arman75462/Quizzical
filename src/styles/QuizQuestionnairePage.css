@@ -4,6 +4,7 @@
   font-size: clamp(1.2rem, 1.6vw, 30rem);
   padding: max(3em, 2.5%) max(2em, 10%);
   margin: 0 auto;
+  animation: fadeInLeftToRight 1s ease-out forwards;
 }
 
 .QuizQuestionnairePage__question {

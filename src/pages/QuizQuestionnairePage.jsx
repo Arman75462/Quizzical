@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "/src/styles/QuizQuestionnairePage.css";
 import UtilityButton from "/src/components/UtilityButton.jsx";
+import { shuffleArray } from "/src/utils.js";
 
 function QuizQuestionnairePage({ setIsQuizStart }) {
   const [dataFromAPI, setDataFromAPI] = useState([]);
@@ -21,7 +22,15 @@ function QuizQuestionnairePage({ setIsQuizStart }) {
         return response.json();
       })
       .then((data) => {
-        setDataFromAPI(data.results);
+        // Combine correct answer object property with incorrect answers array and shuffle them (or else the options would always display in the same order, making the correct answer predictable)
+        const modifiedData = data.results.map((question) => ({
+          ...question,
+          answers: shuffleArray([
+            ...question.incorrect_answers,
+            question.correct_answer,
+          ]),
+        }));
+        setDataFromAPI(modifiedData);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -105,20 +114,13 @@ function QuizQuestionnairePage({ setIsQuizStart }) {
           <p className="QuizQuestionnairePage__question">{result.question}</p>
 
           <div className="QuizQuestionnairePage__options-container">
-            <button
-              onClick={(event) => handleOptionClick(event, result.question)}
-              className={whichClassName(result.question, result.correct_answer)}
-            >
-              {result.correct_answer}
-            </button>
-
-            {result.incorrect_answers.map((incorrectAnswer, index) => (
+            {result.answers.map((answer, index) => (
               <button
                 key={index}
                 onClick={(event) => handleOptionClick(event, result.question)}
-                className={whichClassName(result.question, incorrectAnswer)}
+                className={whichClassName(result.question, answer)}
               >
-                {incorrectAnswer}
+                {answer}
               </button>
             ))}
           </div>

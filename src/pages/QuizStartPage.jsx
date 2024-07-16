@@ -3,7 +3,7 @@ import UtilityButton from "/src/components/UtilityButton.jsx";
 
 function QuizStartPage({ setIsQuizStart }) {
   function handleQuizStartClick() {
-    setIsQuizStart((prevValue) => !prevValue);
+    setIsQuizStart(true);
   }
 
   return (

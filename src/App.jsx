@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       {isQuizStart ? (
-        <QuizQuestionnairePage />
+        <QuizQuestionnairePage setIsQuizStart={setIsQuizStart} />
       ) : (
         <QuizStartPage setIsQuizStart={setIsQuizStart} />
       )}

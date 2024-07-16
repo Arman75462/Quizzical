@@ -29,12 +29,30 @@
   border: 0.05em solid var(--textColorBlue);
 }
 
-.QuizQuestionnairePage .UtilityButton {
-  display: block;
-  margin: 0 auto;
-}
-
 .chosenOptionStyle {
   background-color: var(--chosenOptionBackgroundColor);
   border-color: var(--chosenOptionBackgroundColor);
+}
+
+.correctOptionStyle {
+  background-color: var(--correctOptionBackgroundColor);
+  border-color: var(--correctOptionBackgroundColor);
+}
+
+.wrongOptionStyle {
+  background-color: var(--wrongOptionBackgroundColor);
+  border-color: var(--wrongOptionBackgroundColor);
+}
+
+.QuizQuestionnairePage__playAgain-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em 0em;
+}
+
+.QuizQuestionnairePage__checkAnswers {
+  margin: 0 auto;
+  display: block;
 }

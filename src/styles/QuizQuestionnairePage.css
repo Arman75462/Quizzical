@@ -47,13 +47,18 @@
 
 .QuizQuestionnairePage__playAgain-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1em 0em;
+  gap: 1em 2em;
+  text-align: center;
 }
 
 .QuizQuestionnairePage__checkAnswers {
   margin: 0 auto;
   display: block;
+}
+
+.QuizQuestionnairePage__result {
+  font-weight: bold;
 }

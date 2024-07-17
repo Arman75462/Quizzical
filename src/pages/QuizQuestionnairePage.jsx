@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "/src/styles/QuizQuestionnairePage.css";
 import UtilityButton from "/src/components/UtilityButton.jsx";
 import { shuffleArray } from "/src/utils.js";
+import { decode } from "html-entities";
 
 function QuizQuestionnairePage({ setIsQuizStart }) {
   const [dataFromAPI, setDataFromAPI] = useState([]);
@@ -22,15 +23,24 @@ function QuizQuestionnairePage({ setIsQuizStart }) {
         return response.json();
       })
       .then((data) => {
-        // Combine correct answer object property with incorrect answers array and shuffle them (or else the options would always display in the same order, making the correct answer predictable)
-        const modifiedData = data.results.map((question) => ({
+        // Combine correct answer object property with incorrect answers array and shuffle them (or else the options would always display in the same order, making the correct answer predictable) and also
+
+        // Decoded HTML entities in questions and answers
+
+        console.log(data);
+
+        const decodedData = data.results.map((question) => ({
           ...question,
+          question: decode(question.question),
+          correct_answer: decode(question.correct_answer),
+          incorrect_answers: question.incorrect_answers.map(decode),
           answers: shuffleArray([
-            ...question.incorrect_answers,
-            question.correct_answer,
+            ...question.incorrect_answers.map(decode),
+            decode(question.correct_answer),
           ]),
         }));
-        setDataFromAPI(modifiedData);
+
+        setDataFromAPI(decodedData);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -133,7 +143,7 @@ function QuizQuestionnairePage({ setIsQuizStart }) {
         // Display play again button and score if quiz is completed and user has clicked check answers button
         isQuizComplete ? (
           <div className="QuizQuestionnairePage__playAgain-container">
-            <p>
+            <p className="QuizQuestionnairePage__result">
               You scored {calculateScore()}/{dataFromAPI.length} correct answers
             </p>
             <UtilityButton

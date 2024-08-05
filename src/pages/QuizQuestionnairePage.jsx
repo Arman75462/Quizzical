@@ -27,8 +27,6 @@ function QuizQuestionnairePage({ setIsQuizStart }) {
 
         // Decoded HTML entities in questions and answers
 
-        console.log(data);
-
         const decodedData = data.results.map((question) => ({
           ...question,
           question: decode(question.question),
@@ -116,12 +114,14 @@ function QuizQuestionnairePage({ setIsQuizStart }) {
 
   return (
     <div className="QuizQuestionnairePage">
-      {dataFromAPI.map((result) => (
+      {dataFromAPI.map((result, resultIndex) => (
         <div
           key={result.question}
           className="QuizQuestionnairePage__questions-container"
         >
-          <p className="QuizQuestionnairePage__question">{result.question}</p>
+          <p className="QuizQuestionnairePage__question">{`${
+            resultIndex + 1
+          }) ${result.question}`}</p>
 
           <div className="QuizQuestionnairePage__options-container">
             {result.answers.map((answer, index) => (
@@ -140,7 +140,7 @@ function QuizQuestionnairePage({ setIsQuizStart }) {
       ))}
 
       {
-        // Display play again button and score if quiz is completed and user has clicked check answers button
+        // Display play-again button and score if quiz is completed and user has clicked check answers button
         isQuizComplete ? (
           <div className="QuizQuestionnairePage__playAgain-container">
             <p className="QuizQuestionnairePage__result">
